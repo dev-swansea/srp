@@ -49,7 +49,6 @@ public class ProductRepository { // DAO(Data Access Object) => 상품 정보를 
   }
 
   public Product[] selectAll() {
-
     Product[] all = new Product[totalCnt];
     for (int i = 0; i < totalCnt; i++) {
       all[i] = pArr[i];
