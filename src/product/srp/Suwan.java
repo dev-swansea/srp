@@ -10,16 +10,18 @@ public class Suwan extends User {
   }
 
   public static void main(String[] args) {
-    Order order = new Order(new Suwan(40000000000000L, "suwan"));
-    order.addItems(new Item("갤럭시 울트라 23", "샘송", 1400000L), 1, "visa");
-    order.checkBalance();
+    Order order = new Order();
 
-    order.addItems(new Item("롯데타워", "롯데", 7600000000000L), 1, "visa");
-    order.checkBalance();
+    Pay pay = new Pay(new Suwan(40000000000000L, "suwan"), order);
 
-    order.addItems(new Item("에버랜드", "삼성", 2000000000000L), 1, "visa");
-    order.checkBalance();
+    CheckBalance checkBalance = new CheckBalance();
 
+    order.addItems(new Item("갤럭시 울트라 23", "샘송", 1400000L), 1);
+
+    pay.pay("visa");
+    //order.checkBalance();
+
+    CheckBalance
     order.checkBoughtItem();
 
   }

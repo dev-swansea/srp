@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-  User user;
 
   Item item;
 
@@ -15,30 +14,22 @@ public class Order {
 
   public Long totalPrice;
 
-  public String cardPayMethod;
 
-
-  public Order(User user) {
-    this.user = user;
+  public Order() {
     items = new ArrayList<>();
   }
 
-  public void addItems(Item item, int quantity, String cardPayMethod) {
+  public void addItems(Item item, int quantity) {
     this.item = item;
     this.quantities = quantity;
     items.add(item);
     totalPrice();
-    pay(cardPayMethod);
   }
 
   public void totalPrice() {
     totalPrice = item.getPrice() * quantities;
   }
 
-
-  public void checkBalance() {
-    System.out.println("최근 결제 금액: " + totalPrice + ", 남은 잔액: " + user.getMoney());
-  }
 
   public void checkBoughtItem() {
     for (int i = 0; i < items.size(); i++) {
